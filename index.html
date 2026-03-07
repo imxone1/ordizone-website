@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil - OrdiZone{% endblock %}
+
+{% block content %}
+<!-- Section Hero (Bannière principale) -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">OrdiZone</h1>
+            <p class="hero-tagline">La technologie fiable à portée de main</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/22944277997" target="_blank" class="btn btn-primary btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:+22944277997" class="btn btn-secondary btn-call">
+                    <i class="fas fa-phone"></i> Appeler maintenant
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Services (Carousel automatique) -->
+<section class="services-section" id="services">
+    <div class="container">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-carousel-wrapper">
+            <div class="services-carousel" id="servicesCarousel">
+                {% for service in services %}
+                <div class="service-card">
+                    <div class="service-icon">{{ service.icon }}</div>
+                    <h3 class="service-name">{{ service.name }}</h3>
+                    <p class="service-description">{{ service.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section À propos -->
+<section class="about-section">
+    <div class="container">
+        <h2 class="section-title">À propos</h2>
+        <div class="about-content">
+            <p class="about-text">
+                OrdiZone est une entreprise spécialisée dans la vente d'ordinateurs et les services informatiques au Bénin. 
+                Nous offrons une large gamme de produits informatiques de qualité ainsi que des services professionnels 
+                pour répondre à tous vos besoins technologiques.
+            </p>
+            <p class="about-text">
+                Notre équipe d'experts est à votre disposition pour vous accompagner dans vos projets informatiques, 
+                que ce soit pour l'achat d'équipements, la maintenance, l'installation de logiciels, la configuration 
+                de réseaux ou encore la gestion de vos réseaux sociaux.
+            </p>
+            <p class="about-text">
+                Faites confiance à OrdiZone pour une solution informatique fiable et professionnelle.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+
+

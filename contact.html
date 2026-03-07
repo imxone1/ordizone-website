@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Contactez-nous - OrdiZone{% endblock %}
+
+{% block content %}
+<!-- Section de contact -->
+<section class="contact-section">
+    <div class="container">
+        <h1 class="page-title">Contactez-nous</h1>
+        <p class="contact-intro">
+            Vous avez une question ou besoin d'assistance ? N'hésitez pas à nous contacter. 
+            Notre équipe est disponible pour vous aider.
+        </p>
+        
+        <div class="contact-content">
+            <!-- Informations de contact -->
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Téléphone</h3>
+                        <p><a href="tel:{{ phone_number }}">{{ phone_number }}</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h3>WhatsApp</h3>
+                        <p>Disponible 24/7</p>
+                    </div>
+                </div>
+                
+                <a href="{{ whatsapp_link }}" target="_blank" class="btn btn-primary btn-large btn-whatsapp-contact">
+                    <i class="fab fa-whatsapp"></i> Discuter sur WhatsApp
+                </a>
+            </div>
+            
+            <!-- Formulaire de contact -->
+            <div class="contact-form-wrapper">
+                <form class="contact-form" method="POST" action="{{ url_for('contact') }}">
+                    <div class="form-group">
+                        <label for="nom">Nom *</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telephone">Téléphone *</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <i class="fas fa-paper-plane"></i> Envoyer
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
+
+
+

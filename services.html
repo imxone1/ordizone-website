@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Nos Services - OrdiZone{% endblock %}
+
+{% block content %}
+<!-- Section des services -->
+<section class="services-page-section">
+    <div class="container">
+        <h1 class="page-title">Nos Services</h1>
+        <p class="page-subtitle">Des solutions informatiques complètes pour tous vos besoins</p>
+        
+        <!-- Liste des services -->
+        <div class="services-list">
+            {% for service in services %}
+            <div class="service-item">
+                <div class="service-item-icon">{{ service.icon }}</div>
+                <div class="service-item-content">
+                    <h3 class="service-item-name">{{ service.name }}</h3>
+                    <p class="service-item-description">{{ service.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Bouton d'appel à l'action -->
+        <div class="cta-section">
+            <a href="{{ whatsapp_link }}" target="_blank" class="btn btn-primary btn-large">
+                <i class="fab fa-whatsapp"></i> Contactez-nous via WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
+
+
+
