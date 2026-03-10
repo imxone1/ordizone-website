@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Nos Produits - OrdiZone{% endblock %}
+
+{% block content %}
+<!-- Section des produits -->
+<section class="products-section">
+    <div class="container">
+        <h1 class="page-title">Nos Produits</h1>
+        <p class="page-subtitle">Découvrez notre sélection d'ordinateurs de qualité</p>
+        
+        <!-- Grille de produits -->
+        <div class="products-grid">
+            {% for product in products %}
+            <div class="product-card">
+                <div class="product-image">
+                    {% if product.image %}
+                        <img src="{{ url_for('static', filename='images/' + product.image) }}" 
+                             alt="{{ product.name }}" 
+                             loading="lazy">
+                    {% else %}
+                        <i class="fas fa-laptop"></i>
+                    {% endif %}
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    <p class="product-description">{{ product.description }}</p>
+                    <p class="product-price">{{ product.price }}</p>
+                    <a href="{{ whatsapp_link }}?text=Bonjour, je suis intéressé par {{ product.name }}" 
+                       target="_blank" 
+                       class="btn btn-primary btn-product">
+                        <i class="fab fa-whatsapp"></i> Commander via WhatsApp
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
+
+
